@@ -1,14 +1,23 @@
-import pytest
-from strong_password import avaliar_senha
+from StrongPassword import pontuar_senha, avaliar_nivel
 
 def test_senha_fraca():
-    assert avaliar_senha("123") == "Fraca"
+    assert pontuar_senha("123", "pessoal") == 1
+    assert avaliar_nivel(1) == "Fraca"
 
 def test_senha_media():
-    assert avaliar_senha("abcdef") == "Média"
+    senha = "abc123"
+    nota = pontuar_senha(senha, "pessoal")
+    assert 2 <= nota <= 3
+    assert avaliar_nivel(nota) == "Média"
 
 def test_senha_forte():
-    assert avaliar_senha("abc12345") == "Forte"
+    senha = "Abc123"
+    nota = pontuar_senha(senha, "corporativo")
+    assert nota == 4
+    assert avaliar_nivel(nota) == "Forte"
 
 def test_senha_muito_forte():
-    assert avaliar_senha("Abc123!@#") == "Muito Forte"
+    senha = "Abc123!@ "
+    nota = pontuar_senha(senha, "administrativo")
+    assert nota == 5
+    assert avaliar_nivel(nota) == "Muito Forte"
