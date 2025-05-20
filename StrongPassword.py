@@ -110,5 +110,6 @@ def menu_contexto():
         # Chama a função que verifica a força da senha com o comprimento mínimo adequado
         verificar_forca_senha(senha, minimo)
 
-# Chama a função para exibir o menu de contexto e iniciar o processo de verificação
-menu_contexto()
+# Só executa o menu se rodar diretamente
+if __name__ == "__main__":
+    menu_contexto()
