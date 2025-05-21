@@ -57,7 +57,7 @@ Gabriel de Almeida Carmo
 Este projeto é de caráter educacional, sem fins comerciais, e integra as entregas da disciplina Modelos, Métodos e Técnicas da Engenharia de Software do curso de Tecnologia Sistemas de Informação.
 
 ## 📚 Referências Técnicas
-- Python Docs - string
+- [Python Docs - string](https://docs.python.org/3/library/string.html)
 
 - Python Docs - getpass
 
