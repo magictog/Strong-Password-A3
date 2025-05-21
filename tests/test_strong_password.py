@@ -1,26 +1,19 @@
-import sys
-import os
+import unittest
+from strong_password.core import pontuar_senha, avaliar_nivel
 
-# Adiciona o diretório raiz ao caminho do Python
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+class TestStrongPassword(unittest.TestCase):
+    def test_pontuar_senha(self):
+        self.assertEqual(pontuar_senha("senha"), 1)
+        self.assertEqual(pontuar_senha("Senha123"), 3)
+        self.assertEqual(pontuar_senha("Senha123!@#"), 4)
+        self.assertEqual(pontuar_senha("Senha123!@#longa"), 5)
 
-from strong_password.py import pontuar_senha, avaliar_nivel
+    def test_avaliar_nivel(self):
+        self.assertEqual(avaliar_nivel(1), "Fraca")
+        self.assertEqual(avaliar_nivel(2), "Fraca")
+        self.assertEqual(avaliar_nivel(3), "Média")
+        self.assertEqual(avaliar_nivel(4), "Média")
+        self.assertEqual(avaliar_nivel(5), "Forte")
 
-def test_fraca():
-    assert pontuar_senha("123", "pessoal") <= 1
-    assert avaliar_nivel(1) == "Fraca"
-
-def test_media():
-    nota = pontuar_senha("abc123", "pessoal")
-    assert 2 <= nota <= 3
-    assert avaliar_nivel(nota) == "Média"
-
-def test_forte():
-    nota = pontuar_senha("Abc123", "corporativo")
-    assert nota == 4
-    assert avaliar_nivel(nota) == "Forte"
-
-def test_muito_forte():
-    nota = pontuar_senha("Abc123!@ ", "administrativo")
-    assert nota == 5
-    assert avaliar_nivel(nota) == "Muito Forte"
+if __name__ == '__main__':
+    unittest.main()
