@@ -59,9 +59,9 @@ Este projeto é de caráter educacional, sem fins comerciais, e integra as entre
 ## 📚 Referências Técnicas
 - [Python Docs - string](https://docs.python.org/3/library/string.html)
 
-- Python Docs - getpass
+- [Python Docs - getpass](https://docs.python.org/3/library/getpass.html)
 
-- GitHub Actions
+- [GitHub Actions](https://docs.github.com/en/actions)
 
 
 
