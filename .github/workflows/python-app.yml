@@ -24,7 +24,8 @@ jobs:
 
     - name: Executar testes
       run: |
-        pytest  # ou substitua pelo seu comando real
+        export PYTHONPATH=$PYTHONPATH:$(pwd)
+        pytest -v
 
     - name: Deploy no PythonAnywhere
       env:
