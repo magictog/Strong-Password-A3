@@ -33,8 +33,9 @@ jobs:
         PA_API_TOKEN: ${{ secrets.PA_API_TOKEN }}
       run: |
         pip install --user pythonanywhere
-        python -m pythonanywhere.deploy \
+        pythonanywhere deploy \
           --username $PA_USERNAME \
           --api_token $PA_API_TOKEN \
           --site vrunski.pythonanywhere.com \
           --path /home/vrunski/Strong-Password-A3
+
