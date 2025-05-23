@@ -21,15 +21,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flask pytest
-    
-        - name: Executar testes
-          run: |
-            pytest  # ou o seu comando de teste
 
-        - name: Deploy no PythonAnywhere
-        env:
-          PA_USERNAME: ${{ secrets.PA_USERNAME }}
-          PA_API_TOKEN: ${{ secrets.PA_API_TOKEN }}
-          run: |
-            pip install --user pythonanywhere
-            python -m pythonanywhere.deploy --username $PA_USERNAME --api_token $PA_API_TOKEN --project_folder nome-do-projeto
+    - name: Executar testes
+      run: |
+        pytest  # ou substitua pelo seu comando real
+
+    - name: Deploy no PythonAnywhere
+      env:
+        PA_USERNAME: ${{ secrets.PA_USERNAME }}
+        PA_API_TOKEN: ${{ secrets.PA_API_TOKEN }}
+      run: |
+        pip install --user pythonanywhere
+        python -m pythonanywhere.deploy \
+          --username $PA_USERNAME \
+          --api_token $PA_API_TOKEN \
+          --site vrunski.pythonanywhere.com \
+          --path /home/vrunski/Strong-Password-A3
